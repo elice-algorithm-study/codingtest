@@ -4,7 +4,7 @@ def solution(lottos, win_nums):
     
     for i in lottos:
         for j in win_nums:
-            #번호가 일치할 때마다 순위 상승
+            # 번호가 일치할 때마다 순위 상승
             if i == j:
                 rank -= 1
     
