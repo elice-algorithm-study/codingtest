@@ -15,6 +15,7 @@ def solution(new_id):
             op3 = op3.replace('..', '.')
     
     op4 = op3
+
     if op4[0] == '.':
         op4 = op4[1:]
     elif op4[-1] == '.':
@@ -27,15 +28,12 @@ def solution(new_id):
     op6 = op5
     if len(op6)>15:
         op6 = op6[:15]
-        if op6[0]=='.':
-            op6 = op6[1:]
-        elif op6[-1]=='.':
-            op6 = op6[:-1]
-    
+    if op6[-1]=='.':
+        op6 = op6[:-1]
+
     op7 = op6
-    if len(op7) < 3:
-        while len(op7) < 3:
-            op7 = op7 + op7[-1]
+    while len(op7) < 3:
+        op7 = op7 + op7[-1]
     
     answer = op7
     
