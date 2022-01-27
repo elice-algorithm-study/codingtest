@@ -5,7 +5,7 @@ def solution(new_id):
     # 1 단계
     new_id = new_id.lower()
     
-    # 2 단계
+    # 2 단계, 다른 특수문자 빈 문자열로 대체
     new_id = re.sub("[~!@#$%^&*\(\)=+\[\{\]\}:?,<>/]","",new_id)
     
     # 3 단계
@@ -14,9 +14,11 @@ def solution(new_id):
          
     # 4 단계
     while len(new_id) > 0 :
+            # 문자열.lstrip(인자): 인자로 전달된 문자를 문자열의 왼쪽에서 제거
         if new_id[0] == '.':
             new_id = new_id.lstrip('.')
         elif new_id[-1] == '.':
+            # 문자열.lstrip(인자): 인자로 전달된 문자를 문자열의 오른쪽에서 제거
             new_id = new_id.rstrip('.')    
         else:
             break
