@@ -1,25 +1,42 @@
-def solution(new_id): 
-  special_ch = '-_.~!@#$%^&*()=+[{]}:?,<>/' 
-
-  new_id = new_id.lower() 
-  answer = '' 
-  
-  for i in range(len(new_id)): 
-    if new_id[i] in special_ch and new_id[i] not in '-_.': 
-      continue 
-    answer+=new_id[i] 
+def solution(new_id):
+    answer = ''
+    canWord = '-_.abcdefghijklmnopqrstuvwxyz1234567890'
     
-  while(-1 != answer.find('..')): answer = answer.replace('..', '.')
-  
-  answer = answer.strip('.') 
-  
-  if len(answer) >= 16: 
-    answer = answer[0:15].strip('.')
-  
-  if len(answer) == 0: 
-    answer = 'a' 
-   
-  while len(ans) <= 2: 
-    answer += answer[-1] 
-  
-  return answer
+    op1 = new_id.lower()
+    
+    op2 = op1
+    for word in op2:
+        if word not in canWord:
+            op2 = op2.replace(word, "")
+    
+    op3 = op2
+    if '.' in op3:
+        while '..' in op3:
+            op3 = op3.replace('..', '.')
+    
+    op4 = op3
+    if op4[0] == '.':
+        op4 = op4[1:]
+    elif op4[-1] == '.':
+        op4 = op4[:-1]
+    
+    op5 = op4
+    if op5 == '':
+        op5 = 'a'
+    
+    op6 = op5
+    if len(op6)>15:
+        op6 = op6[:15]
+        if op6[0]=='.':
+            op6 = op6[1:]
+        elif op6[-1]=='.':
+            op6 = op6[:-1]
+    
+    op7 = op6
+    if len(op7) < 3:
+        while len(op7) < 3:
+            op7 = op7 + op7[-1]
+    
+    answer = op7
+    
+    return answer
